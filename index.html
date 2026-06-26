@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self'
+      https://cdn.jsdelivr.net
+      https://static.cloudflareinsights.com
+      https://pagead2.googlesyndication.com
+      https://www.googletagservices.com;
+    style-src 'self' 'unsafe-inline'
+      https://cdn.jsdelivr.net
+      https://fonts.googleapis.com;
+    font-src 'self'
+      https://cdn.jsdelivr.net
+      https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    connect-src 'self'
+      https://pagead2.googlesyndication.com
+      https://googleads.g.doubleclick.net
+      https://fundingchoicesmessages.google.com
+      https://www.google.com;
+    frame-src
+      https://googleads.g.doubleclick.net
+      https://tpc.googlesyndication.com
+      https://pagead2.googlesyndication.com
+      https://www.google.com
+      https://*.doubleclick.net;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+  ">
+
+  <!-- X-Content-Type-Options (MIME 스니핑 방지) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="어디서 인쇄할지 고민이신가요? '인쇄소 가이드'에서 딱 맞는 인쇄소를 찾아보세요.">
+  <meta name="keywords" content="인쇄소, 소량 인쇄, 독립출판, 책자 인쇄, 브로셔 인쇄, 리플렛 인쇄, 포스터 인쇄, 굿즈 제작, 제본, 박 후가공, 양장 제본, 디지털 인쇄, 옵셋 인쇄">
+  <meta name="author" content="인쇄소 가이드">
+  <meta property="og:title" content="인쇄소 가이드 — 딱 맞는 인쇄소 찾기">
+  <meta property="og:description" content="큐레이션, 필터, 검색으로 나에게 맞는 인쇄소를 쉽게 찾아보세요.">
+  <meta property="og:type" content="website">
+  <meta name="adsense-client" content="ca-pub-XXXXXXXXXXXXXXXX">
+  <!-- AdSense 설정: 위 meta의 ca-pub 값만 1번 입력하고, 아래 광고 영역은 data-ad-slot 값만 채우면 됩니다. -->
+  <title>인쇄소 가이드</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+  <!-- marked.js: 마크다운 → HTML 변환 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+  <!-- DOMPurify: marked.js 출력 HTML 살균 (XSS 방지) -->
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================
+  HEADER
+============================= -->
+<header id="main-header">
+  <div class="header-inner">
+    <a href="#" class="site-logo" id="logo-home-link">
+      <span class="logo-name">인쇄소 가이드</span>
+    </a>
+    <nav class="main-nav" aria-label="주 메뉴">
+      <button class="nav-btn active" data-tab="curated" aria-label="큐레이션 탭">추천</button>
+      <button class="nav-btn" data-tab="printers" aria-label="인쇄소 탭">전체 목록</button>
+      <button class="nav-btn" data-tab="guide" aria-label="인쇄 가이드 탭">인쇄 가이드</button>
+      <button class="nav-btn" data-tab="instructions" aria-label="운영 안내 탭">운영 안내</button>
+    </nav>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴 열기">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+  <!-- Mobile nav drawer -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴">
+    <button class="nav-btn active" data-tab="curated">추천</button>
+    <button class="nav-btn" data-tab="printers">전체 목록</button>
+    <button class="nav-btn" data-tab="guide">인쇄 가이드</button>
+    <button class="nav-btn" data-tab="instructions">운영 안내</button>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- ============================
+    TAB: 큐레이션 (추천)
+  ============================= -->
+  <section id="tab-curated" class="tab-panel active" aria-labelledby="curated-heading">
+
+    <!-- 상단 광고 (728x90 리더보드 / 모바일 320x100) -->
+    <div class="ad-slot-top">
+      <div class="ad-slot adsense-slot" id="ad-top" data-ad-slot="TOP_BANNER_SLOT_ID" data-ad-label="상단 배너">
+        <span class="ad-placeholder">AdSense 슬롯 ID만 넣으면 됩니다: data-ad-slot="TOP_BANNER_SLOT_ID"</span>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero-section">
+      <div class="hero-inner">
+        <h1 class="hero-title">딱 맞는 인쇄소,<br>바로 찾으세요</h1>
+        <p class="hero-subtitle">지금 상황에 적합한 인쇄소를 추천해드립니다</p>
+        <!-- Hero Search -->
+        <div class="hero-search">
+          <input type="text" id="heroSearchInput" placeholder="인쇄소 이름, 지역, 서비스 검색..." aria-label="인쇄소 검색">
+          <button id="heroSearchBtn" aria-label="검색">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Curated Categories -->
+    <div class="section-container">
+      <h2 class="section-title">어떤 인쇄물이 필요하세요?</h2>
+      <div class="curated-grid" id="curatedGrid">
+        <!-- Cards rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-number" id="statTotalPrinters">0</span>
+        <span class="stat-label">등록 인쇄소</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="statFeatured">0</span>
+        <span class="stat-label">추천 인쇄소</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="statRegions">0</span>
+        <span class="stat-label">지역</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="statGuides">6</span>
+        <span class="stat-label">인쇄 가이드</span>
+      </div>
+    </div>
+
+    <!-- 중간 광고 (추천 인쇄소 위) -->
+    <div class="section-container" style="padding-top:0; padding-bottom:0;">
+      <div class="ad-slot adsense-slot" id="ad-mid" data-ad-slot="MID_BANNER_SLOT_ID" data-ad-label="중간 배너">
+        <span class="ad-placeholder">AdSense 슬롯 ID만 넣으면 됩니다: data-ad-slot="MID_BANNER_SLOT_ID"</span>
+      </div>
+    </div>
+
+    <!-- Featured Printers -->
+    <div class="section-container">
+      <h2 class="section-title">추천 인쇄소</h2>
+      <div class="printer-grid" id="featuredGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================
+    TAB: 운영 안내 (사이트 운영 및 정보 활용 안내)
+  ============================= -->
+  <section id="tab-instructions" class="tab-panel" aria-labelledby="instructions-heading">
+    <div class="section-container">
+      <h2 class="section-title" id="instructions-heading">사이트 운영 및 정보 활용 안내</h2>
+
+      <article class="instructions-article">
+        <h3>1. 정보 수집 및 출처 고지</h3>
+        <ul>
+          <li>본 사이트에 게재된 모든 정보는 공개적으로 접근 가능한 정보(공식 웹사이트, 공공 데이터베이스 등)에서 수집된 것입니다.
+            <br>게재 시점에 운영자가 일일이 사이트를 방문하여 확인한 정보이므로 틀린 부분이 있을 수 있습니다.
+            <br>정정이 필요한 경우 printshopguide@gmail.com으로 제보해주시면 감사하겠습니다. 
+          </li>
+          <li>수집된 정보는 사용자 편의를 위해 정리된 것으로, 특정 사업체를 홍보하거나 비방하려는 의도가 없습니다.</li>
+          <li>일부 정보는 최신 상태가 아닐 수 있으므로 실제 이용 전 꼭 해당 사업체에 다시 한 번 확인하시기 바랍니다.</li>
+        </ul>
+
+        <h3>2. 정보 삭제 요청 절차</h3>
+        <ul>
+          <li>사이트에 게재된 정보에 문제가 있거나 삭제를 원하시는 경우, printshopguide@gmail.com를 통해 요청하시면 신속히 처리하겠습니다.</li>
+          <li>삭제 요청 시, 사업체 정보와 요청 사유를 명확히 기재해 주시기 바랍니다.</li>
+        </ul>
+
+        <h3>3. 광고 관련 고지</h3>
+        <ul>
+          <li>본 사이트는 광고 수익을 통해 운영될 예정이며, 광고와 정보는 명확히 구분되어 제공됩니다.</li>
+          <li>광고는 사용자 맞춤형으로 제공될 수 있으며, 광고 내용에 대한 책임은 광고주에게 있습니다.</li>
+          <!-- <li>광고임을 명확히 하기 위해 "[광고]", "[스폰서 링크]" 등의 표시를 사용합니다.</li> -->
+        </ul>
+
+        <h3>4. 저작권 및 면책 조항</h3>
+        <ul>
+          <li>본 사이트에 제공된 모든 정보는 정보 제공 목적으로 사용되며, 상업적 사용은 관련 법률에 따라 제한될 수 있습니다.</li>
+          <li>제공된 데이터의 저작권은 각 데이터 소유자에게 있으며, 본 사이트는 정보의 정확성, 완전성 및 적법성을 보장하지 않습니다.</li>
+          <li>사이트에 포함된 외부 링크는 해당 링크의 콘텐츠에 대해 책임지지 않습니다.</li>
+        </ul>
+
+        <h3>5. 이용 약관 및 개인정보 처리방침</h3>
+        <ul>
+          <li>사용자는 본 사이트를 정보 검색 및 조회 목적으로만 이용할 수 있으며, 본 사이트에 게시된 정보를 무단으로 크롤링하거나 상업적으로 사용할 수 없습니다.</li>
+          <li>본 사이트는 개인정보를 수집하지 않습니다. 다만, 문의를 위한 이메일 전송 시 제공된 정보는 해당 요청 처리 목적으로만 사용됩니다.</li>
+        </ul>
+
+        <h3>6. 데이터 활용 및 제한</h3>
+        <ul>
+          <li>수집된 정보는 공익적이고 비상업적인 목적으로 제공되며, 법령에 따라 사용이 제한될 수 있습니다.</li>
+          <li>무단으로 본 사이트의 콘텐츠를 복제, 배포, 크롤링하거나 상업적 목적으로 사용하는 경우 법적 조치가 취해질 수 있습니다.</li>
+        </ul>
+
+        <h3>7. 추가 사항</h3>
+        <ul>
+          <li>본 사이트는 대한민국의 관련 법률을 준수하며, 법률 위반 소지가 있는 경우 즉시 수정 또는 삭제 조치를 취하겠습니다.</li>
+          <li>문의 사항이나 건의가 있을 경우 printshopguide@gmail.com로 연락주시기 바랍니다.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================
+    TAB: 인쇄소 전체 목록
+  ============================= -->
+  <section id="tab-printers" class="tab-panel" aria-labelledby="printers-heading">
+
+    <div class="section-container">
+      <div class="list-header">
+        <div class="list-title-wrap">
+          <h2 class="section-title" id="printers-heading">인쇄소 목록</h2>
+          <span class="result-count" id="printerResultCount">전체 0개</span>
+        </div>
+
+        <!-- Search + Sort -->
+        <div class="search-sort-row">
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="printerSearchInput" placeholder="이름, 지역, 서비스 검색..." aria-label="인쇄소 검색">
+            <button class="clear-btn" id="printerClearBtn" aria-label="검색어 지우기" style="display:none;">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <select id="printerSortSelect" class="sort-select" aria-label="정렬 방식">
+            <option value="default">기본 순</option>
+            <option value="name">이름 순</option>
+            <option value="featured">추천 먼저</option>
+          </select>
+        </div>
+
+        <!-- Tag Filters -->
+        <div class="filter-section">
+          <div class="filter-group">
+            <span class="filter-group-label">인쇄 방식</span>
+            <div class="filter-tags" id="filterPrintType">
+              <button class="filter-tag active" data-group="printType" data-value="all">전체</button>
+              <button class="filter-tag" data-group="printType" data-value="디지털 인쇄">디지털</button>
+              <button class="filter-tag" data-group="printType" data-value="옵셋 인쇄">옵셋</button>
+              <button class="filter-tag" data-group="printType" data-value="리소 인쇄">리소</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-group-label">인쇄물 유형</span>
+            <div class="filter-tags" id="filterProductType">
+              <button class="filter-tag active" data-group="productType" data-value="all">전체</button>
+              <button class="filter-tag" data-group="productType" data-value="책자">책자</button>
+              <button class="filter-tag" data-group="productType" data-value="리플렛">리플렛</button>
+              <button class="filter-tag" data-group="productType" data-value="명함">명함</button>
+              <button class="filter-tag" data-group="productType" data-value="포스터">포스터</button>
+              <button class="filter-tag" data-group="productType" data-value="스티커">스티커</button>
+              <button class="filter-tag" data-group="productType" data-value="카드 및 엽서">카드/엽서</button>
+              <button class="filter-tag" data-group="productType" data-value="마스킹테이프">마스킹테이프</button>
+              <button class="filter-tag" data-group="productType" data-value="굿즈">굿즈</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-group-label">특징</span>
+            <div class="filter-tags" id="filterFeature">
+              <button class="filter-tag active" data-group="feature" data-value="all">전체</button>
+              <button class="filter-tag" data-group="feature" data-value="빠른 출고">빠른 출고</button>
+              <button class="filter-tag" data-group="feature" data-value="박 후가공">박 후가공</button>
+              <button class="filter-tag" data-group="feature" data-value="양장 제본">양장 제본</button>
+              <button class="filter-tag" data-group="feature" data-value="간편 견적">간편 견적</button>
+              <button class="filter-tag" data-group="feature" data-value="24시간">24시간</button>
+            </div>
+          </div>
+          <button class="reset-filters-btn" id="resetFiltersBtn">
+            <i class="fas fa-undo"></i> 필터 초기화
+          </button>
+        </div>
+      </div>
+
+      <!-- Printer Cards -->
+      <div class="printer-grid" id="printerGrid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="empty-state" id="printerEmptyState" style="display:none;">
+        <i class="fas fa-search"></i>
+        <p>조건에 맞는 인쇄소가 없습니다.<br>다른 필터를 시도해보세요.</p>
+      </div>
+
+      <!-- 인쇄소 목록 하단 광고 -->
+      <div class="ad-slot ad-slot-guide-bottom adsense-slot" id="ad-printers-bottom" data-ad-slot="PRINTERS_BOTTOM_SLOT_ID" data-ad-label="인쇄소 목록 하단">
+        <span class="ad-placeholder">AdSense 슬롯 ID만 넣으면 됩니다: data-ad-slot="PRINTERS_BOTTOM_SLOT_ID"</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================
+    TAB: 인쇄 가이드 (목록)
+  ============================= -->
+  <section id="tab-guide" class="tab-panel" aria-labelledby="guide-heading">
+    <div class="section-container">
+      <div class="list-title-wrap">
+        <h2 class="section-title" id="guide-heading">인쇄 기초 가이드</h2>
+        <span class="result-count" id="guideResultCount">0개 아티클</span>
+      </div>
+      <p class="section-desc">인쇄를 처음 접하는 분들을 위한 기초 지식을 정리했습니다.</p>
+      <div class="guide-list" id="guideList">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- 가이드 목록 하단 광고 -->
+      <div class="ad-slot ad-slot-guide-bottom adsense-slot" id="ad-guide-bottom" data-ad-slot="GUIDE_BOTTOM_SLOT_ID" data-ad-label="가이드 목록 하단">
+        <span class="ad-placeholder">AdSense 슬롯 ID만 넣으면 됩니다: data-ad-slot="GUIDE_BOTTOM_SLOT_ID"</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+    TAB: 가이드 세부 페이지
+  ============================= -->
+  <section id="tab-guide-post" class="tab-panel" aria-labelledby="guide-post-heading">
+    <div class="guide-post-wrap">
+      <div class="guide-post-nav-top">
+        <button class="guide-back-btn" id="guideBackBtn">
+          <i class="fas fa-arrow-left"></i> 목록으로
+        </button>
+      </div>
+      <article class="guide-post-article" id="guidePostContent">
+        <!-- Rendered by JS -->
+      </article>
+      <!-- 가이드 게시글 본문 하단 광고 -->
+      <div class="ad-slot ad-slot-post-bottom adsense-slot" id="ad-post-bottom" data-ad-slot="POST_BOTTOM_SLOT_ID" data-ad-label="게시글 하단">
+        <span class="ad-placeholder">AdSense 슬롯 ID만 넣으면 됩니다: data-ad-slot="POST_BOTTOM_SLOT_ID"</span>
+      </div>
+
+      <div class="guide-post-nav-bottom" id="guidePostNavBottom">
+        <!-- Prev / Next rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================
+  MODAL: 인쇄소 상세
+============================= -->
+<div class="modal-overlay" id="printerModal" role="dialog" aria-modal="true" aria-labelledby="modalPrinterName" style="display:none;">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="닫기">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modalPrinterName"></h2>
+      <span class="modal-location" id="modalPrinterLocation"></span>
+    </div>
+    <div class="modal-tags" id="modalPrinterTags"></div>
+    <div class="modal-actions" id="modalPrinterActions"></div>
+  </div>
+</div>
+
+<!-- ============================
+  FOOTER
+============================= -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <p class="footer-logo">인쇄소 가이드</p>
+    <p class="footer-desc">정보는 비정기적으로 업데이트됩니다.<br>등록·수정 요청은 아래로 문의해주세요.</p>
+    <p class="footer-links">
+      <a href="mailto:printshopguide@gmail.com">✉️ printshopguide@gmail.com</a>
+    </p>
+    <p class="footer-copy">© 2026 인쇄소 가이드. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="data/printers.js"></script>
+<script src="app.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
